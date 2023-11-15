@@ -5,6 +5,7 @@ export default function TabButton({ children, onSelect }) {   // children prop c
     </li>
   );
 }
+// pattern 2: handleSelect>onSelect>TabButton
 // handleClick used as a value passed to the click prop
 
 // export default function TabButton({children}) {  
