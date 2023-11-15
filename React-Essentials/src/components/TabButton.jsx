@@ -1,12 +1,9 @@
-export default function TabButton(props) {   // children prop contains content  between component text in App
-  function handleClick() {
-    console.log(`Hello World!`);
-  }
+export default function TabButton({ children, onSelect }) {   // children prop contains content  between component text in App
   return (
-  <li>
-    <button onClick={handleClick}>{props.children}</button>    
+    <li>
+      <button onClick={onSelect}>{children}</button>
     </li>
-  ); 
+  );
 }
 // handleClick used as a value passed to the click prop
 
