@@ -1,9 +1,8 @@
-export default function Tabs({ children }) {
-  return 
-  <>
-    <menu>
-
-    </menu>
-    {children}
-  </>
+export default function Tabs({ children, buttons, ButtonsContainer = 'menu' }) {  // set multiple slots in components
+  return (
+    <>
+      <ButtonsContainer>{buttons}</ButtonsContainer>
+      {children}
+    </>
+  );
 }
