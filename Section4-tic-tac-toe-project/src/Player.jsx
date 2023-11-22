@@ -1,5 +1,6 @@
 import { useState } from "react";
-export default function Player({ name, symbol }) {
+export default function Player({ initialName, symbol }) {
+  const [playerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
   function handleEditClick() {
@@ -7,18 +8,21 @@ export default function Player({ name, symbol }) {
     setIsEditing((editing) => !editing); // use a function to update the state
     // setIsEditing(!isEditing);   // directly invert the value
   }
+  function handleChange(event) {
+    setPlayerName(event.target.value);
+  }
 
-  let playerName = <span className="player-name">{name}</span>
+  let editablePlayerName = <span className="player-name">{initialName}</span>
   let btnCaption = "Edit";
   if (isEditing) {
-    playerName = < input type="text" required value={name}/>;
+    editablePlayerName = < input type="text" required value={initialName} onChange={handleChange}/>;
     btnCaption = "Save";
   }
 
   return (
     <li>
       <span className="player">
-        {playerName}
+        {editablePlayerName}
         <span className="player-symbol">{symbol}</span>
       </span>
       <button onClick={handleEditClick}>{btnCaption}</button>
